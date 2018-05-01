@@ -1,3 +1,4 @@
+# 基幹メーラ
 class ApplicationMailer < ActionMailer::Base
   default from: 'from@example.com'
   layout 'mailer'
