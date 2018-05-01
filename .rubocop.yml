@@ -1,0 +1,37 @@
+# Railsモードを有効化
+Rails:
+  Enabled: true
+
+AllCops:
+  # 以下のファイルはチェック対象外
+  Exclude:
+    - 'vendor/bundle/**/*'
+
+  # 対象のRubyのバージョンを指定
+  TargetRubyVersion: 2.5.1
+
+# 改行コードを指定
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+# 1行あたりの文字数
+Metrics/LineLength:
+  Max: 120
+
+# 日本語のコメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# FrozenString のマジックコメントは不要
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# ネストしたクラスの定義を許可
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/MixinUsage:
+  # 以下のファイルはclass/moduleの外でのMixinを許可
+  Exclude:
+    - 'bin/*'
+
