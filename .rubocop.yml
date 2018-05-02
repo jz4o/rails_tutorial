@@ -14,6 +14,11 @@ AllCops:
 Layout/EndOfLine:
   EnforcedStyle: lf
 
+Metrics/BlockLength:
+  # 以下のファイルはブロックあたりの行数をチェックしない
+  Exclude:
+    - 'spec/**/*'
+
 # 1行あたりの文字数
 Metrics/LineLength:
   Max: 120
