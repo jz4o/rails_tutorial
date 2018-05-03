@@ -57,8 +57,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :truncation, { except: %w[ar_internal_metadata schema_migration] }
+    DatabaseCleaner.clean_with(:truncation, except: %w[ar_internal_metadata schema_migration])
   end
 
   config.before(:each) do
