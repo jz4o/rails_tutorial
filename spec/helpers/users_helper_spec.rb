@@ -11,4 +11,23 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UsersHelper, type: :helper do
+  describe 'gravatar_for' do
+    gravatar_url = 'https://secure.gravatar.com/avatar'
+    dummy_id = 'testtesttest'
+    let(:user) { FactoryBot.build :user }
+    let(:result) { %(<img alt="#{user.name}" class="gravatar" src="#{gravatar_url}/#{dummy_id}?s=#{size}" />) }
+    before { allow(Digest::MD5).to receive(:hexdigest).and_return(dummy_id) }
+
+    context 'default size' do
+      subject { helper.gravatar_for(user) }
+      let(:size) { 80 }
+      it { is_expected.to eq result }
+    end
+
+    context 'specific size' do
+      subject { helper.gravatar_for(user, size: size) }
+      let(:size) { 120 }
+      it { is_expected.to eq result }
+    end
+  end
 end
