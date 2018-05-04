@@ -5,6 +5,8 @@ Rails:
 AllCops:
   # 以下のファイルはチェック対象外
   Exclude:
+    - 'db/migrate/*'
+    - 'db/schema.rb'
     - 'vendor/bundle/**/*'
 
   # 対象のRubyのバージョンを指定
