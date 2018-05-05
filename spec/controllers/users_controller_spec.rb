@@ -28,6 +28,10 @@ RSpec.describe UsersController, type: :controller do
         subject
         expect(flash[:success]).to eq 'Welcome to the Sample App!'
       end
+      it do
+        subject
+        expect(controller.current_user).to eq assigns[:user]
+      end
     end
 
     describe 'when failure with save' do
