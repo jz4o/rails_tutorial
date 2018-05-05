@@ -29,6 +29,10 @@ Metrics/LineLength:
 Style/AsciiComments:
   Enabled: false
 
+# !!の使用を許可
+Style/DoubleNegation:
+  Enabled: false
+
 # FrozenString のマジックコメントは不要
 Style/FrozenStringLiteralComment:
   Enabled: false
