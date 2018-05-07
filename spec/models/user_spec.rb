@@ -36,16 +36,20 @@ RSpec.describe User, type: :model do
       context 'valid' do
         emails = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
         emails.each do |email|
-          let(:user_attributes) { { email: email } }
-          it { is_expected.to be_valid }
+          describe email.to_s do
+            let(:user_attributes) { { email: email } }
+            it { is_expected.to be_valid }
+          end
         end
       end
 
       context 'invalid' do
         emails = %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com foo@bar..com]
         emails.each do |email|
-          let(:user_attributes) { { email: email } }
-          it { is_expected.not_to be_valid }
+          describe email.to_s do
+            let(:user_attributes) { { email: email } }
+            it { is_expected.not_to be_valid }
+          end
         end
       end
     end
