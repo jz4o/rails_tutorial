@@ -18,7 +18,7 @@ RSpec.describe UsersController, type: :controller do
     subject { post :create, params: { user: user_attributes } }
     let(:user_attributes) { FactoryBot.attributes_for :user }
 
-    describe 'when success with save' do
+    context 'when success with save' do
       before { allow_any_instance_of(User).to receive(:valid?).and_return(true) }
 
       it { is_expected.to have_http_status :found }
@@ -34,7 +34,7 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
-    describe 'when failure with save' do
+    context 'when failure with save' do
       before { allow_any_instance_of(User).to receive(:valid?).and_return(false) }
 
       it { is_expected.to have_http_status :ok }
